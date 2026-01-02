@@ -1,0 +1,42 @@
+﻿@model List<ElTiempoWeb.Services.RegistroViento>
+
+<h2>Rosa de los Vientos</h2>
+
+<form method="post">
+    <label>Ciudad:</label>
+    <input type="text" name="ciudad" required />
+
+    <label>Desde:</label>
+    <input type="date" name="desde" required />
+
+    <button type="submit">Generar</button>
+</form>
+
+@if (Model != null && Model.Count > 0)
+{
+    <canvas id="rosaChart" width="400" height="400"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const datos = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model));
+
+        const direcciones = datos.map(d => d.vientoDireccion);
+        const velocidades = datos.map(d => d.vientoVelocidad);
+
+        new Chart(document.getElementById('rosaChart'), {
+            type: 'polarArea',
+            data: {
+                labels: direcciones.map(d => d + "°"),
+                datasets: [{
+                    label: 'Velocidad del viento',
+                    data: velocidades,
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgb(54, 162, 235)',
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+}
+

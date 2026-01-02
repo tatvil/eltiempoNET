@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<section class="text-center my-5">
+    <h2 class="mb-3">Panel de herramientas Villaema</h2>
+    <p class="lead">Accede a tus aplicaciones desde cualquier lugar.</p>
+</section>
+
+<section class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="h5">El Tiempo</h3>
+                <p>Consulta meteorológica por ciudad</p>
+                <a class="btn btn-primary" asp-controller="Tiempo" asp-action="Index">Entrar</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="h5">Herramientas Python</h3>
+                <p>Conjunto de utilidades desarrolladas en Python.</p>
+                <a class="btn btn-primary" asp-controller="Python" asp-action="Index">Entrar</a>
+            </div>
+        </div>
+    </div>
+</section>
