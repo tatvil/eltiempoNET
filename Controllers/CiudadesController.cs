@@ -1,28 +1,41 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ElTiempoWeb.Data;
+using System.Linq;
 
-namespace ElTiempoWeb.Controllers
+public class CiudadesController : Controller
 {
-    public class CiudadesController : Controller
+    private readonly AppDbContext _context;
+
+    public CiudadesController(AppDbContext context)
     {
-        [HttpGet]
-        public IActionResult Ciudades()
-        {
-            return View();
-        }
+        _context = context;
+    }
 
-        [HttpGet]
-        public IActionResult GetDatosPorMes(int mes)
-        {
-            // Aquí irán los datos reales o simulados
-            var datos = new Dictionary<string, object>
-            {
-                ["madrid"] = new { temp_max = 30, temp_media = 20, temp_min = 10, precipitacion = 15, viento = 12, humedad = 60 },
-                ["ampolla"] = new { temp_max = 28, temp_media = 18, temp_min = 8, precipitacion = 20, viento = 10, humedad = 65 },
-                ["alfaz"] = new { temp_max = 32, temp_media = 22, temp_min = 12, precipitacion = 10, viento = 14, humedad = 55 }
-            };
+    public IActionResult Ciudades()
+    {
+        return View();
+    }
 
-            return Json(datos);
-        }
+    [HttpGet]
+    public IActionResult GetDatosPorMes(int mes)
+    {
+        var datos = _context.Estadisticas
+            .Where(e => e.Mes == mes)
+            .ToList();
+
+        var resultado = datos
+            .GroupBy(e => e.Ciudad.ToLower())
+            .ToDictionary(g => g.Key, g => new {
+                temp_max = g.First().TempMax,
+                temp_media = g.First().TempMedia,
+                temp_min = g.First().TempMin,
+                precipitacion = g.First().Precipitacion,
+                viento = g.First().Viento,
+                humedad = g.First().Humedad
+            });
+
+        return Json(resultado);
     }
 }
+
 
