@@ -18,6 +18,13 @@ namespace ElTiempoWeb.Controllers
             return View();
         }
 
+
+        public IActionResult Ciudades()
+        {
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

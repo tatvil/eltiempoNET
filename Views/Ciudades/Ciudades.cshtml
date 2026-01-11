@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "Ciudades";
+}
+
+<section class="text-center my-5">
+    <h2 class="mb-3">Resumen por ciudad</h2>
+    <p class="lead">Estadisticas del tiempo por mes</p>
+
+    <label for="mes">Selecciona el mes:</label>
+    <select id="mes" name="mes">
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+    </select>
+    <a id="btn_ver_mes" class="btn btn-primary">Ver</a>
+</section>
+
+<section class="row">
+    <!-- MADRID -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-90">
+            <div class="card-body">
+                <h3 class="h5">Madrid</h3>
+
+                <div id="resultado_madrid" class="mt-3">
+                    <p id="temp_maxima">Temp. max: 0º</p>
+                    <p id="temp_media">Temp. media: 0º</p>
+                    <p id="temp_minima">Temp. min: 0º</p>
+                    <p id="precipitacion">Precipitacion: 0mm</p>
+                    <p id="velocidad_viento">Viento: 0km/h</p>
+                    <p id="humedad">Humedad: 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AMPOLLA -->
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-90">
+            <div class="card-body">
+                <h3 class="h5">Ampolla</h3>
+
+                <div id="resultado_madrid" class="mt-3">
+                    <p id="temp_maxima">Temp. max: 0º</p>
+                    <p id="temp_media">Temp. media: 0º</p>
+                    <p id="temp_minima">Temp. min: 0º</p>
+                    <p id="precipitacion">Precipitacion: 0mm</p>
+                    <p id="velocidad_viento">Viento: 0km/h</p>
+                    <p id="humedad">Humedad: 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALFAZ DEL -->
+    <div class="col-md-4 mb-4">
+        <div class="card h-90">
+            <div class="card-body">
+                <h3 class="h5">Alfaz del Pi</h3>
+
+                <div id="resultado_alfaz" class="mt-3">
+                    <p id="temp_maxima">Temp. max: 0º</p>
+                    <p id="temp_media">Temp. media: 0º</p>
+                    <p id="temp_minima">Temp. min: 0º</p>
+                    <p id="precipitacion">Precipitacion: 0mm</p>
+                    <p id="velocidad_viento">Viento: 0km/h</p>
+                    <p id="humedad">Humedad: 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<script>~/js/ciudades.js</script>
